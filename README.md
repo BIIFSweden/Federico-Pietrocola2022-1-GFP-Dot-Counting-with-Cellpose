@@ -1,8 +1,11 @@
-# Federico-Pietrocola2022-1-GFP-Dot-Counting-with-Cellpose
+# LC3+ GFP dot counting using cellpose
 
-#### This jupyter notebook utilizes the cellpose segmentation algorithm to segment both the cytoplasm and nuclei of the microscopy images. The fluorescent dots within the detected cells (exluding their nuclei) are segmented using a white tophat filter and manual thresholding. The script then counts the fluorescent dots within the detected cells and will ouput a "Results" folder containing images of the segmentations and an excel file which contains the dot counts in all segmented cells within each image.
+The image analysis pipeline written in this jupyter notebook utilizes the cellpose segmentation algorithm [https://github.com/MouseLand/cellpose] to segment the cells contained within 2-channel .nd2 microscopy images. For the purpose of this project, it is unimportant to segment contacting neighbouring nuclei, hence simple global intensity thresholding is used to segment the nuclei of the cells. This approach is possible due to the high SNR of the nuclei channel and reduces the total computation time (by avoiding having to use cellpose for nuclei segmentation) enabling faster high-throughput analysis.
+
+The fluorescent dots within the detected cells (exluding their nuclei) are segmented using a white tophat filter, manual thresholding and minimum area criteria. The script then counts the fluorescent dots within the detected cells and will ouput a "Results" folder containing images of the segmentations and an excel file which contains the dot counts in all segmented cells within each image.
 
 #### The user should run as following:
+
 
 
 1. First run the first two  jupyter-cells to import the necessary python modules and define the custom functions.
