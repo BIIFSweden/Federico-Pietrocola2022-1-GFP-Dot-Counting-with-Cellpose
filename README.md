@@ -48,10 +48,29 @@ The opened program should look similar to this. If it's your first time running 
 
 ![Screen Shot 2022-02-11 at 4 11 19 PM](https://user-images.githubusercontent.com/43760657/153622848-014e7e59-448f-43ff-9a45-6d43fb03f39f.png)
 
-Now the program is ready to run. The first step is to change the value
+Now the program's is ready to run. The first step is to define the variables defined in the "User Inputs" code-cell. Here is a detailed list:
+1. filepath: This is the filepath to the folder containing the images to analyze. The directory should be entered as a string (with quotation marks around it).
+
+2. use_gpu: This should be set to True or False. If true, the cellpose neural network will use the computer's GPU to perform the calculations, which will significantly speed up the program. If there is no GPU available, set to False.
+
+3.1 threshold_LC3: is a float value used to segment the LC3 dots based on their intensity value. A higher value will result in less dots segmented.
+
+3.2 minimum_dot_size: integer value defining the minimum area (pixels) of retained LC3 dots. ie. = 10 -> any dots under 10 pixels will be discarded.
+
+3.3 top_hat_size: interger value describing the size of the disk structuring element of the white_tophat filter used to segment the small bright LC3 dots. A larger element will allow larger dots to remain after LC3 segmentation.
+
+4.1 cell_diameter : estimate of the diameter (in pixels) of the cell. This will affect the cytoplasm segmentation results significantly. More can be read on https://cellpose.readthedocs.io/en/latest/settings.html#diameter
+
+4.2 flow_treshold_cyto: allowable error for cellpose flows for each mask (more information: https://cellpose.readthedocs.io/en/latest/settings.html). Typical range is -6 to 6. Default is set to 0.
+
+5. nuclei_threshold: the global intensity threshold for segmentation of nuclei. Increase if the number or size of the nuclei are underestimated.
+
+6.1 output_images: Set to True or False, depending on if you want to save images of the segmentation results.
+
+6.2 resolution: sets the resolution (pixels per inch) of the output images. Greater resolution results in improved image quality but significantly increased storage demands and processing times.
+
 
 ![Screen Shot 2022-02-11 at 4 48 46 PM](https://user-images.githubusercontent.com/43760657/153623162-33536670-e737-4523-8fe4-24d24b17c1a0.png)
-
 
 
 1. First run the first two  jupyter-cells to import the necessary python modules and define the custom functions.
