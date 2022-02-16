@@ -44,10 +44,12 @@ Once you find the "Cellpose-Segmentation.ipynb" file, open it by clicking on the
 
 ### Running the program
 
+#### Starting the program
 The opened program should look similar to this. If it's your first time running the python or the program on your computer, run the first code by first clicking on the cell, then clicking the "Run" button or shift-enter as a shortcut to run the cell. The next two code-cells should be run everytime you first open the program as they import the required python modules and define the programs functions.
 
 ![Screen Shot 2022-02-11 at 4 11 19 PM](https://user-images.githubusercontent.com/43760657/153622848-014e7e59-448f-43ff-9a45-6d43fb03f39f.png)
 
+#### User Inputs
 Now the program's is ready to run. The first step is to define the variables defined in the "User Inputs" code-cell. Here is a detailed list:
 1. filepath: This is the filepath to the folder containing the images to analyze. The directory should be entered as a string (with quotation marks around it).
 
@@ -69,11 +71,13 @@ Now the program's is ready to run. The first step is to define the variables def
 
 6.2 resolution: sets the resolution (pixels per inch) of the output images. Greater resolution results in improved image quality but significantly increased storage demands and processing times.
 
-
 ![Screen Shot 2022-02-11 at 4 48 46 PM](https://user-images.githubusercontent.com/43760657/153623162-33536670-e737-4523-8fe4-24d24b17c1a0.png)
 
+#### Running the program
+After the user inputs are set, the final step is to run the "Run Program" code-cell. The program will print 'Finished, all images analyzed.' once finished running.
 
-1. First run the first two  jupyter-cells to import the necessary python modules and define the custom functions.
-2. After this, the user should enter the filepath of the local directory containing the images to be analyzed in the "User Inputs" jupyter-cell. Additional parameters for fine tuning of the cytoplasm, nuclei and fluorescent dot segmentation shold be adjusted in this cell as well.
-3. Run the "Run Program" jupyter-cell, which will loop through and anaylze all images in the given filepath.
-4. If needed, tune segmentation parameters and re-run the "User Inputs" and "Run Program" jupyter-cells.
+![Screen Shot 2022-02-16 at 9 31 37 AM](https://user-images.githubusercontent.com/43760657/154225725-1c188099-0387-420b-9282-9f5800bedb36.png)
+
+#### Output Files
+
+The output files include images for all segmentation and a single excel file containing a seperate column for each microscopy file. The rows indicate the number of counted dots per each detected cell within the frame.
