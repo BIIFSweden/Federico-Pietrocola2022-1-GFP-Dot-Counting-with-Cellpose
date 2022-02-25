@@ -51,7 +51,7 @@ The opened program should look similar to this. If it's your first time running 
 
 #### User Inputs
 Now the program's is ready to run. The first step is to define the variables defined in the "User Inputs" code-cell. Here is a detailed list:
-1. filepath: This is the filepath to the folder containing the images to analyze. The directory should be entered as a string (with quotation marks around it).
+1. filepath: This is the filepath to the folder containing the images to analyze. The directory should be entered as a string (with quotation marks around it). If running on a Windows computer, the string should be raw (add an r before it): r'filepath' not 'filepath'.
 
 2. use_gpu: This should be set to True or False. If true, the cellpose neural network will use the computer's GPU to perform the calculations, which will significantly speed up the program. If there is no GPU available, set to False.
 
@@ -80,4 +80,6 @@ After the user inputs are set, the final step is to run the "Run Program" code-c
 
 #### Output Files
 
-The output files include images for all segmentation and a single excel file containing a seperate column for each microscopy file. The rows indicate the number of counted dots per each detected cell within the frame.
+The output files include images for all segmentation and a single excel file containing a seperate column for each microscopy file. The rows indicate the number of counted dots per each detected cell within the frame. 
+
+Note, if you choose to re-run the output file, change the name or delete the existing "Results" folder, otherwise the program will append new data to the exisitng results folder.
