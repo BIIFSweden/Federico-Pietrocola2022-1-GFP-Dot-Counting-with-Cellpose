@@ -65,13 +65,23 @@ Now the program's is ready to run. The first step is to define the variables def
 
 4.2 flow_treshold_cyto: allowable error for cellpose flows for each mask (more information: https://cellpose.readthedocs.io/en/latest/settings.html). Typical range is -6 to 6. Default is set to 0.
 
-5. nuclei_threshold: the global intensity threshold for segmentation of nuclei. Increase if the number or size of the nuclei are underestimated.
+Nuclei Segmentation: set to either 'CELLPOSE' or 'GLOBAL'. If 'CELLPOSE' is chosen, this will use the cellpose deep learning model to determine the nuclei mask, which will be slower than using the 'GLOBAL' approach which relies on a simple global threshold.
 
-6.1 output_images: Set to True or False, depending on if you want to save images of the segmentation results.
+5. GLOBAL nuclei_threshold: Only need to modify if Nuclei Segmentation method is 'GLOBAL'. The global intensity threshold for segmentation of nuclei. Increase if the number or size of the nuclei are underestimated.
 
-6.2 resolution: sets the resolution (pixels per inch) of the output images. Greater resolution results in improved image quality but significantly increased storage demands and processing times.
+6. CELLPOSE Nuclei Segmentation.
 
-![Screen Shot 2022-02-11 at 4 48 46 PM](https://user-images.githubusercontent.com/43760657/153623162-33536670-e737-4523-8fe4-24d24b17c1a0.png)
+  6.1 nuclei_diamter: estimate in pixel diameter of cell nuclei.
+  
+  6.2 nuclei_flow: allowable error for cellpose flows for each mask (more information: https://cellpose.readthedocs.io/en/latest/settings.html). Typical range is -6 to 6. Default is set to 0.
+
+7. Output image saving options.
+
+  7.1 output_images: Set to True or False, depending on if you want to save images of the segmentation results.
+
+  7.2 resolution: sets the resolution (pixels per inch) of the output images. Greater resolution results in improved image quality but significantly increased storage demands and processing times.
+
+![Screen Shot 2022-03-08 at 1 31 29 PM](https://user-images.githubusercontent.com/43760657/157238794-f46a4d87-97c1-458a-b48a-992676909334.png)
 
 #### Running the program
 After the user inputs are set, the final step is to run the "Run Program" code-cell. The program will print 'Finished, all images analyzed.' once finished running.
