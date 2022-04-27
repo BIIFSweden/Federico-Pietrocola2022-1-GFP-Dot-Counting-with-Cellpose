@@ -1,45 +1,50 @@
 # LC3+ GFP dot counting using cellpose
 
-## Project Overview
+# Project Overview
 The image analysis pipeline written in this jupyter notebook utilizes the cellpose segmentation algorithm [https://github.com/MouseLand/cellpose] to segment the cells contained within 2-channel .nd2 fluorescent microscopy images. For the purpose of this project, it is unimportant to segment contacting neighbouring nuclei, hence simple global intensity thresholding is used to segment the nuclei of the cells. This approach is possible due to the high SNR of the nuclei channel and reduces the total computation time (by avoiding having to use cellpose for nuclei segmentation) enabling faster high-throughput analysis. If there are nuclei segmentation issues, it is recommended to set the method = 'CELLPOSE' described in the USER INPUTS section later in this document.
 
 The fluorescent dots within the detected cells (exluding their nuclei) are segmented using a white tophat filter, manual thresholding and minimum area criteria. The script then counts the fluorescent dots within the detected cells and will ouput a "Results" folder containing images of the segmentations and an excel file which contains the dot counts in all segmented cells within each image.
 
 ![results-0002](https://user-images.githubusercontent.com/43760657/152824338-b6514bb1-f37f-41a7-8045-54970440e927.jpeg)
 
+# Installation
 
-## Script Guide
+1. Download Anaconda if this is not already installed.
+2. Download the Git repository for this project.
+3. Create and activate a conda virtual environment named translocation (python=3.9 or python=3.10 both should work) to isolate the project's packages.
+   ```bash
+   conda create -name environmentname python=3.9
+   ```
+4. Navigate to the downloaded git repository directory.
+   ```bash
+   cd directoy_of_downloaded_git_repository/code
+   ```
+5. Download the necessary packages the command below:
+  
+   ```bash
+   pip install -r requirements.txt
+   ``` 
+6. Finished
 
-### Installation
+# Run Program
+1. In the terminal/command prompt, activate the conda environment for this project.
+   ```bash
+   conda activate environmentname
+   ```
+2. Change to the "Code" directory contained in this downloaded git repository
+   ```bash
+   cd directoy_of_downloaded_git_repository/code
+   ```
+3. Run the program from the command line using:
+   ```bash
+   python run_analysis.py
+   ```
+4. This will open a user interface. Enter the directory containing the image(s) or folders of images to be analyzed and tune the segmentation parameters.
+6. Press "Run" to start the analysis
 
-#### 1. Python Installation
-If you do not already have Python3 installed, Anaconda should first be installed using the following guide:
-
-https://docs.anaconda.com/anaconda/install/index.html
-
-This will install the latest version of Python, Jupyter notebook to run the code and many commonly used Python modules.
-
-#### 2. Segmentation Algorithm Installation
-
-Download the code as a zip file and extract the files to a directory where you wish to save the program (eg. desktop, documents etc.).
-
-![Screen Shot 2022-02-11 at 3 42 16 PM](https://user-images.githubusercontent.com/43760657/153612004-74be87e9-c553-4529-89a3-e2a14ec60170.png)
-
-### 3. Opening the dot counting program in Jupyter Notebook
-
-To open the program, first open jupyter notebook using your terminal (mac) or command prompt (windows). Then type in "jupyter notebook" and press the return key, which will then open jupyter in your default web browser. 
-<img width="561" alt="Screen Shot 2022-02-11 at 3 52 37 PM" src="https://user-images.githubusercontent.com/43760657/153613873-93f14e1b-00c2-4c29-bca9-42207b1bb898.png">
-
-Once open, navigate to the directory containing the extracted ZIP folder. This is where you'll run the code. The example image shows it stored on my desktop.
-
-![Screen Shot 2022-02-11 at 4 04 01 PM](https://user-images.githubusercontent.com/43760657/153615657-81643ef4-cf36-41a4-81bc-5848ce6d4f5b.png)
-
-![Screen Shot 2022-02-11 at 4 07 52 PM](https://user-images.githubusercontent.com/43760657/153616281-1335d30c-ba9c-4b1a-907c-f304f921feb0.png)
-
-![Screen Shot 2022-02-11 at 4 08 46 PM](https://user-images.githubusercontent.com/43760657/153616407-84e0d5e9-45ec-4fbc-a517-fa4bc173a6ba.png)
-
-
-Once you find the "Cellpose-Segmentation.ipynb" file, open it by clicking on the filename.
+<p align="center">
+<img width="450" alt="Screen Shot 2022-04-08 at 2 15 17 PM" src="https://user-images.githubusercontent.com/43760657/162433614-18773490-da77-48c4-b09c-43b60e8ba60c.png"> <img width="360" alt="Screen Shot 2022-04-08 at 2 15 29 PM" src="https://user-images.githubusercontent.com/43760657/162433646-51465914-4fe8-4a86-8643-1ab37a70cbe9.png">
+</p>
 
 
 ### Running the program
