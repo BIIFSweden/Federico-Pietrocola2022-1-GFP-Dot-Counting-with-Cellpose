@@ -33,68 +33,20 @@ The fluorescent dots within the detected cells (exluding their nuclei) are segme
    ```
 2. Change to the "Code" directory contained in this downloaded git repository
    ```bash
-   cd directoy_of_downloaded_git_repository/code
+   cd directoy_of_downloaded_git_repository
    ```
 3. Run the program from the command line using:
    ```bash
    python run_analysis.py
    ```
 4. This will open a user interface. Enter the directory containing the image(s) or folders of images to be analyzed and tune the segmentation parameters.
-6. Press "Run" to start the analysis
+
+5. Press "Run" to start the analysis
 
 <p align="center">
 <img width="450" alt="Screen Shot 2022-04-08 at 2 15 17 PM" src="https://user-images.githubusercontent.com/43760657/162433614-18773490-da77-48c4-b09c-43b60e8ba60c.png"> <img width="360" alt="Screen Shot 2022-04-08 at 2 15 29 PM" src="https://user-images.githubusercontent.com/43760657/162433646-51465914-4fe8-4a86-8643-1ab37a70cbe9.png">
 </p>
 
+# Interpreting the results
 
-### Running the program
-
-#### Starting the program
-The opened program should look similar to this. If it's your first time running the python or the program on your computer, run the first code by first clicking on the cell, then clicking the "Run" button or shift-enter as a shortcut to run the cell. The next two code-cells should be run everytime you first open the program as they import the required python modules and define the programs functions.
-
-![Screen Shot 2022-02-11 at 4 11 19 PM](https://user-images.githubusercontent.com/43760657/153622848-014e7e59-448f-43ff-9a45-6d43fb03f39f.png)
-
-#### User Inputs
-Now the program's is ready to run. The first step is to define the variables defined in the "User Inputs" code-cell. Here is a detailed list:
-1. filepath: This is the filepath to the folder containing the images to analyze. The directory should be entered as a string (with quotation marks around it). If running on a Windows computer, the string should be raw (add an r before it): r'filepath' not 'filepath'.
-
-2. use_gpu: This should be set to True or False. If true, the cellpose neural network will use the computer's GPU to perform the calculations, which will significantly speed up the program. If there is no GPU available, set to False.
-
-3.1 threshold_LC3: is a float value used to segment the LC3 dots based on their intensity value. A higher value will result in less dots segmented.
-
-3.2 minimum_dot_size: integer value defining the minimum area (pixels) of retained LC3 dots. ie. = 10 -> any dots under 10 pixels will be discarded.
-
-3.3 top_hat_size: interger value describing the size of the disk structuring element of the white_tophat filter used to segment the small bright LC3 dots. A larger element will allow larger dots to remain after LC3 segmentation.
-
-4.1 cell_diameter : estimate of the diameter (in pixels) of the cell. This will affect the cytoplasm segmentation results significantly. More can be read on https://cellpose.readthedocs.io/en/latest/settings.html#diameter
-
-4.2 flow_treshold_cyto: allowable error for cellpose flows for each mask (more information: https://cellpose.readthedocs.io/en/latest/settings.html). Typical range is -6 to 6. Default is set to 0.
-
-Nuclei Segmentation: set to either 'CELLPOSE' or 'GLOBAL'. If 'CELLPOSE' is chosen, this will use the cellpose deep learning model to determine the nuclei mask, which will be slower than using the 'GLOBAL' approach which relies on a simple global threshold.
-
-5. GLOBAL nuclei_threshold: Only need to modify if Nuclei Segmentation method is 'GLOBAL'. The global intensity threshold for segmentation of nuclei. Increase if the number or size of the nuclei are underestimated.
-
-6. CELLPOSE Nuclei Segmentation.
-
-  6.1 nuclei_diamter: estimate in pixel diameter of cell nuclei.
-  
-  6.2 nuclei_flow: allowable error for cellpose flows for each mask (more information: https://cellpose.readthedocs.io/en/latest/settings.html). Typical range is -6 to 6. Default is set to 0.
-
-7. Output image saving options.
-
-  7.1 output_images: Set to True or False, depending on if you want to save images of the segmentation results.
-
-  7.2 resolution: sets the resolution (pixels per inch) of the output images. Greater resolution results in improved image quality but significantly increased storage demands and processing times.
-
-![Screen Shot 2022-03-08 at 1 31 29 PM](https://user-images.githubusercontent.com/43760657/157238794-f46a4d87-97c1-458a-b48a-992676909334.png)
-
-#### Running the program
-After the user inputs are set, the final step is to run the "Run Program" code-cell. The program will print 'Finished, all images analyzed.' once finished running.
-
-![Screen Shot 2022-02-16 at 9 31 37 AM](https://user-images.githubusercontent.com/43760657/154225725-1c188099-0387-420b-9282-9f5800bedb36.png)
-
-#### Output Files
-
-The output files include images for all segmentation and a single excel file containing a seperate column for each microscopy file. The rows indicate the number of counted dots per each detected cell within the frame. 
-
-Note, if you choose to re-run the output file, change the name or delete the existing "Results" folder, otherwise the program will append new data to the exisitng results folder.
+After the program is finished running, a LC3counts.xlsx file is produced which shows the number of detected dots contained within each cell (0 means there was no dots detected within a cell). Additionally, .tiff images will be saved which show the segmentation results. Finally, in the main folder selected in the GUI, a .csv file is saved which shows the parameters used for segmentation.
