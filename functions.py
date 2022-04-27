@@ -12,12 +12,12 @@ def nd2_max_projection(nd2_object):
     Z_DIM = nd2_object.sizes['z']
     X_DIM = nd2_object.frame_shape[0]
     Y_DIM = nd2_object.frame_shape[1]
-    stack = np.empty([Z_DIM,X_DIM,Y_DIM])
+    stack = np.empty([Z_DIM,X_DIM,Y_DIM],dtype='float32')
 
     #Import all cytoplasm focal planes
     nd2_object.default_coords['c'] = 0 #Cyto Channel
     for z in range(Z_DIM):
-        stack[z,:,:] = nd2_object[z]
+        stack[z,:,:] = np.asarray(nd2_object[z],dtype='float32')
 
     #Calculate maximum intensity projects for cyto channel
     max_intensity_cyto = np.amax(stack,axis=(0))
@@ -36,7 +36,6 @@ def nd2_max_projection(nd2_object):
 def import_stack(img_path,focal_plane_cyto=0,focal_plane_nuclei=0,min_percentile_cyto = 0,
                  max_percentile_cyto = 100,min_percentile_nuclei = 0,max_percentile_nuclei = 100,
                  max_intensity_projection = None):
-    
 
 
   #Open ND2 file as object
