@@ -37,7 +37,7 @@ The fluorescent dots within the detected cells (exluding their nuclei) are segme
    ```
 3. Run the program from the command line using:
    ```bash
-   python run_translocation_analysis.py
+   python run_analysis.py
    ```
 4. This will open a user interface. Enter the directory containing the image(s) or folders of images to be analyzed and tune the segmentation parameters.
 6. Press "Run" to start the analysis
