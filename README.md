@@ -11,9 +11,9 @@ The fluorescent dots within the detected cells (exluding their nuclei) are segme
 
 1. Download Anaconda if this is not already installed.
 2. Download the Git repository for this project.
-3. Create and activate a conda virtual environment named translocation (python=3.9 or python=3.10 both should work) to isolate the project's packages.
+3. Create and activate a conda virtual environment (in this example it is named chiara1) named translocation (python=3.9 or python=3.10 both should work) to isolate the project's packages.
    ```bash
-   conda create --name environmentname python=3.9
+   conda create --name chiara1 python=3.9
    ```
 4. Navigate to the downloaded git repository directory.
    ```bash
@@ -29,7 +29,7 @@ The fluorescent dots within the detected cells (exluding their nuclei) are segme
 # Run Program
 1. In the terminal/command prompt, activate the conda environment for this project.
    ```bash
-   conda activate environmentname
+   conda activate chiara1
    ```
 2. Change to the "Code" directory contained in this downloaded git repository
    ```bash
