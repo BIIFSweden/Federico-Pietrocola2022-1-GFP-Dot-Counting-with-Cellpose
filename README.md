@@ -13,7 +13,7 @@ The fluorescent dots within the detected cells (exluding their nuclei) are segme
 2. Download the Git repository for this project.
 3. Create and activate a conda virtual environment named translocation (python=3.9 or python=3.10 both should work) to isolate the project's packages.
    ```bash
-   conda create -name environmentname python=3.9
+   conda create --name environmentname python=3.9
    ```
 4. Navigate to the downloaded git repository directory.
    ```bash
