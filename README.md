@@ -31,7 +31,7 @@ The fluorescent dots within the detected cells (exluding their nuclei) are segme
    ```bash
    conda activate chiara1
    ```
-2. Change to the "Code" directory contained in this downloaded git repository
+2. Change to the directory where the program is saved.
    ```bash
    cd directoy_of_downloaded_git_repository
    ```
