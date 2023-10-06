@@ -2,9 +2,9 @@ from setuptools import setup
 from setuptools import find_packages
 
 setup(
-    name="LC3-GFP-Counting",
+    name="Senolytic-Dot-Counting",
     verion="0.1.1",
-    description="A program to count LC3-GFP dots in images of cells",
+    description="A program to count fluorescent markers in images of cells",
     py_modules=[
         "functions",
         "get_user_inputs",
