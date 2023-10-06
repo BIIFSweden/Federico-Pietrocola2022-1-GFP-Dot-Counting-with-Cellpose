@@ -21,11 +21,11 @@ class UserInputGUI:
         self.browse_text.set(self.directory)
 
     def get_inputs(self):
-        self.tophat_size = int(self.input_vars[0][1].get())
-        self.LC3_thresh = float(self.input_vars[1][1].get())
-        self.LC3_min_area = int(self.input_vars[2][1].get())
-        self.cyto_diam = int(self.input_vars[3][1].get())
-        self.nuclei_diam = int(self.input_vars[4][1].get())
+        self.tophat_size = int(self.input_entries[0][1].get())
+        self.LC3_thresh = float(self.input_entries[1][1].get())
+        self.LC3_min_area = int(self.input_entries[2][1].get())
+        self.cyto_diam = int(self.input_entries[3][1].get())
+        self.nuclei_diam = int(self.input_entries[4][1].get())
         self.root.after(100, self.root.destroy)  # 100ms time delay to prevent freezing GUI
 
     def create_gui(self):
@@ -50,17 +50,15 @@ class UserInputGUI:
             ('Cytoplasm Diameter for Cellpose', '200'),
             ('Nuclei Diameter for Cellpose', '35')
         ]
-
-        # Create labels and entries for each input variable
+        # Create labels and associate them with StringVar variables
         self.input_entries = []
         for i, (label_text, default_value) in enumerate(self.input_vars):
-            var = tk.StringVar()
             label = tk.Label(text=label_text)
-            label.grid(column=1, row=2*i+1)
-            entry = tk.Entry(self.root, textvariable=var)
+            label.grid(column=1, row=2 * i + 1)
+            entry = tk.Entry(self.root, textvariable=self.input_vars[i])
             entry.insert(tk.END, default_value)
-            entry.grid(column=1, row=2*i+2)
-            self.input_entries.append((label, entry, var))
+            entry.grid(column=1, row=2 * i + 2)
+            self.input_entries.append((label, entry, self.input_vars[i]))
 
         # Create variable descriptions
         description = """User Variables Description"""
