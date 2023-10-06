@@ -11,40 +11,36 @@ The fluorescent dots within the detected cells (exluding their nuclei) are segme
 
 1. Download Anaconda if this is not already installed.
 2. Download the Git repository for this project.
-3. Create and activate a conda virtual environment (in this example it is named dot_counting) to isolate the project's environment.
+   ```bash
+   git clone https://github.com/BIIFSweden/LC3-GFP-Counting
+   cd LC3-GFP-Counting
+   ```
+4. Create and activate a conda virtual environment (in this example it is named dot_counting) to isolate the project's environment.
    ```bash
    conda create --name dot_counting python=3.9
-   ```
-4. Navigate to the downloaded git repository directory.
-   ```bash
-   cd directoy_of_downloaded_git_repository/code
    ```
 5. Download the necessary packages the command below:
   
    ```bash
-   pip install -r requirements.txt
+   pip install -e .
    ``` 
-6. Finished
+7. Finished
 
 # Run Program
 1. In the terminal/command prompt, activate the conda environment for this project.
    ```bash
    conda activate dot_counting
    ```
-2. Change to the directory where the program is saved.
-   ```bash
-   cd directoy_of_downloaded_git_repository
-   ```
 3. Run the program from the command line using:
    ```bash
-   python run_analysis.py
+   python src/run_analysis.py
    ```
-4. This will open a user interface. Enter the directory containing the image(s) or folders of images to be analyzed and tune the segmentation parameters.
+3. This will open a user interface. Enter the directory containing the image(s) or folders of images to be analyzed and tune the segmentation parameters.
 
-5. Press "Run" to start the analysis
+4. Press "Run" to start the analysis
 
 <p align="center">
-<img width="450" alt="Screen Shot 2022-04-08 at 2 15 17 PM" src="https://user-images.githubusercontent.com/43760657/162433614-18773490-da77-48c4-b09c-43b60e8ba60c.png"> <img width="360" alt="Screen Shot 2022-04-08 at 2 15 29 PM" src="https://user-images.githubusercontent.com/43760657/162433646-51465914-4fe8-4a86-8643-1ab37a70cbe9.png">
+<img width="350" alt="Screenshot 2023-10-06 at 13 14 37" src="https://github.com/BIIFSweden/LC3-GFP-Counting/assets/43760657/b7dd471b-ad11-4cdf-b514-7d64ee4255e2">
 </p>
 
 # Interpreting the results
