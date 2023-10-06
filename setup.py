@@ -13,7 +13,7 @@ setup(
     package_dir={"": "src"},
     author_email="robert.welch@scilifelab.se",
     author="Robert Welch",
-    url="https://github.com/BIIFSweden/LC3-GFP-Counting",
+    url="https://github.com/BIIFSweden/Senolytic-Dot-Counting",
     packages=find_packages(","),
     install_requires=[
         "matplotlib",
