@@ -1,22 +1,24 @@
-print('Importing Packages...')
 from itertools import count
+import gc
+import os
+import psutil
+
+from csv import writer
+from time import time, localtime, strftime
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.segmentation import mark_boundaries
 from skimage.measure import label,regionprops_table
 import pandas as pd
-import os
-import psutil
-from get_user_inputs import *
-from functions import *
-import gc
-from csv import writer
-print('Finished importing packages')
-from time import time, localtime, strftime
+
+from get_user_inputs import UserInputGUI
+from functions import LC3_segmentation,find_image_paths,import_stack
+from functions import nuclei_segmentation_cellpose, cell_segmentation
 
 #Prompt User for inputs
 print('Enter GUI parameters')
-folder_directory,cell_diameter,nuclei_diameter,tophat_size,threshold_LC3,minimum_dot_size,tophat_size = get_user_inputs()
+gui = UserInputGUI()
+folder_directory,cell_diameter,nuclei_diameter,tophat_size,threshold_LC3,minimum_dot_size = gui.get_user_inputs()
 
 image_paths,image_roots = find_image_paths(folder_directory)
 
