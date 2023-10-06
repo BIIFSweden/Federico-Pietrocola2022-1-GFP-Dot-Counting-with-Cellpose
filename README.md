@@ -39,10 +39,6 @@ The fluorescent dots within the detected cells (exluding their nuclei) are segme
 
 4. Press "Run" to start the analysis
 
-<p align="center">
-<img width="350" alt="Screenshot 2023-10-06 at 13 14 37" src="https://github.com/BIIFSweden/LC3-GFP-Counting/assets/43760657/b7dd471b-ad11-4cdf-b514-7d64ee4255e2">
-</p>
-
 # Interpreting the results
 
 After the program is finished running, a LC3counts.xlsx file is produced which shows the number of detected dots contained within each cell (0 means there was no dots detected within a cell). Additionally, .tiff images will be saved which show the segmentation results. Finally, in the main folder selected in the GUI, a .csv file is saved which shows the parameters used for segmentation.
