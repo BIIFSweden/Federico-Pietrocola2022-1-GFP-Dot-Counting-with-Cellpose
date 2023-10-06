@@ -1,7 +1,7 @@
 # LC3+ GFP dot counting using cellpose
 
 # Project Overview
-The image analysis pipeline written in this jupyter notebook utilizes the cellpose segmentation algorithm [https://github.com/MouseLand/cellpose] to segment the cells contained within 2-channel .nd2 fluorescent microscopy images. For the purpose of this project, it is unimportant to segment contacting neighbouring nuclei, hence simple global intensity thresholding is used to segment the nuclei of the cells. This approach is possible due to the high SNR of the nuclei channel and reduces the total computation time (by avoiding having to use cellpose for nuclei segmentation) enabling faster high-throughput analysis. If there are nuclei segmentation issues, it is recommended to set the method = 'CELLPOSE' described in the USER INPUTS section later in this document.
+This python script utilizes the cellpose segmentation algorithm [https://github.com/MouseLand/cellpose] to segment the cells contained within 2-channel .nd2 fluorescent microscopy images. For the purpose of this project, it is unimportant to segment contacting neighbouring nuclei, hence simple global intensity thresholding is used to segment the nuclei of the cells. This approach is possible due to the high SNR of the nuclei channel and reduces the total computation time (by avoiding having to use cellpose for nuclei segmentation) enabling faster high-throughput analysis. If there are nuclei segmentation issues, it is recommended to set the method = 'CELLPOSE' described in the USER INPUTS section later in this document.
 
 The fluorescent dots within the detected cells (exluding their nuclei) are segmented using a white tophat filter, manual thresholding and minimum area criteria. The script then counts the fluorescent dots within the detected cells and will ouput a "Results" folder containing images of the segmentations and an excel file which contains the dot counts in all segmented cells within each image.
 
@@ -11,9 +11,9 @@ The fluorescent dots within the detected cells (exluding their nuclei) are segme
 
 1. Download Anaconda if this is not already installed.
 2. Download the Git repository for this project.
-3. Create and activate a conda virtual environment (in this example it is named chiara1) named translocation (python=3.9 or python=3.10 both should work) to isolate the project's packages.
+3. Create and activate a conda virtual environment (in this example it is named dot_counting) to isolate the project's environment.
    ```bash
-   conda create --name chiara1 python=3.9
+   conda create --name dot_counting python=3.9
    ```
 4. Navigate to the downloaded git repository directory.
    ```bash
@@ -29,7 +29,7 @@ The fluorescent dots within the detected cells (exluding their nuclei) are segme
 # Run Program
 1. In the terminal/command prompt, activate the conda environment for this project.
    ```bash
-   conda activate chiara1
+   conda activate dot_counting
    ```
 2. Change to the directory where the program is saved.
    ```bash
